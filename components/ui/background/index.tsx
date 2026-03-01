@@ -245,7 +245,6 @@ const OrbitalBackground = ({
   const targetAngleRef = useRef(0);
   const rafRef = useRef<number>(0);
 
-  // Setup: compile shaders & link programs once
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -326,7 +325,6 @@ const OrbitalBackground = ({
     };
   }, []);
 
-  // Generate dots & set up render function on prop changes
   useEffect(() => {
     const state = glStateRef.current;
     const canvas = canvasRef.current;
@@ -380,7 +378,6 @@ const OrbitalBackground = ({
       gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
       gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
 
-      // Pass 1: draw rotated points to FBO
       gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
       gl.viewport(0, 0, cw, ch);
       gl.clearColor(245 / 255, 242 / 255, 237 / 255, 1.0);
@@ -408,7 +405,6 @@ const OrbitalBackground = ({
       gl.drawArrays(gl.POINTS, 0, count);
       gl.disable(gl.BLEND);
 
-      // Pass 2: post-process (grain) to screen
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);
       gl.viewport(0, 0, cw, ch);
       gl.clearColor(0.0, 0.0, 0.0, 1.0);
@@ -441,14 +437,12 @@ const OrbitalBackground = ({
     };
   }, [centerX, centerY, seed, sizeRatio]);
 
-  // Resize handler: regenerate dots + re-render
   useEffect(() => {
     const onResize = () => fullDrawRef.current?.();
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Scroll-driven rotation (shader-based, not CSS)
   useEffect(() => {
     const SENSITIVITY = 0.0002;
     const LERP_FACTOR = 0.07;

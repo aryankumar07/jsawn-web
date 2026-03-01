@@ -2,16 +2,13 @@
 
 import { useState } from "react";
 
-
 const TerminalViewer = () => {
   const [isFlat, setIsFlat] = useState(false);
 
   return (
     <div className="flex-1 w-full max-w-2xl lg:max-w-none perspective-1000">
-      {/* ADDED: h-[540px] and flex-col to lock the container height */}
       <div className="rounded-2xl bg-white border border-neutral-200 shadow-2xl shadow-neutral-300/50 overflow-hidden transform lg:rotate-[-2deg] lg:hover:rotate-0 transition-transform duration-500 ease-out ring-1 ring-black/5 flex flex-col h-[540px]">
 
-        {/* Terminal Header */}
         <div className="flex items-center justify-between px-4 py-3 bg-neutral-50/80 backdrop-blur-sm border-b border-neutral-200 shrink-0">
           <div className="flex gap-2">
             <div className="w-3 h-3 rounded-full bg-rose-400" />
@@ -19,14 +16,12 @@ const TerminalViewer = () => {
             <div className="w-3 h-3 rounded-full bg-emerald-400" />
           </div>
 
-          {/* Dynamic Tab Title */}
           <div className="flex items-center gap-2 px-3 py-1 bg-white border border-neutral-200 rounded-md shadow-sm">
             <span className="text-xs text-neutral-600 font-mono font-medium">
               {isFlat ? "Mr. Jsawn (flat)" : "Mr. Jsawn"}
             </span>
           </div>
 
-          {/* Flat Toggle Switch */}
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium text-neutral-500">Flat</span>
             <button
@@ -43,15 +38,11 @@ const TerminalViewer = () => {
           </div>
         </div>
 
-        {/* Terminal Body */}
-        {/* ADDED: overflow-hidden on wrapper, so inner elements control scrolling */}
         <div className="p-6 font-mono text-sm leading-relaxed flex flex-col flex-1 overflow-hidden">
 
-          {/* ADDED: overflow-auto here to make only the code block scrollable if needed */}
           <div className="flex-1 overflow-auto pr-2">
             <pre>
               {isFlat ? (
-                // FLATTENED VIEW
                 <code className="text-neutral-500">
                   <div className="bg-teal-50 -mx-6 px-6 py-0.5 border-l-2 border-teal-400">
                     <span className="text-teal-700">.[0].address.city</span> = <span className="text-emerald-600">&quot;Gwenborough&quot;</span>
@@ -70,7 +61,6 @@ const TerminalViewer = () => {
                   <span className="text-teal-700">.[1].id</span> = <span className="text-amber-600">2</span>{"\n"}
                 </code>
               ) : (
-                // NESTED TREE VIEW
                 <code className="text-neutral-500">
                   <span className="text-neutral-400">[</span>{"\n"}
                   <span className="text-teal-700">  0</span>: <span className="text-neutral-400">{"{"}</span>{"\n"}
@@ -96,8 +86,6 @@ const TerminalViewer = () => {
             </pre>
           </div>
 
-          {/* Light Mode TUI Vim Status Bar */}
-          {/* ADDED: shrink-0 so the footer doesn't get crushed if code is too long */}
           <div className="mt-4 flex flex-wrap gap-y-3 items-center justify-between text-xs text-neutral-500 border-t border-neutral-200 pt-4 shrink-0">
             <div className="flex gap-4">
               <span className="flex items-center gap-1.5"><kbd className="bg-neutral-100 border border-neutral-200 px-1.5 py-0.5 rounded text-neutral-600 font-sans shadow-sm">j/k</kbd> Navigate</span>

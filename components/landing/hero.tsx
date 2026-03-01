@@ -19,7 +19,6 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
 
-        {/* Left Content */}
         <div className="flex-1 max-w-2xl text-left">
           <div className="inline-flex items-center gap-2 rounded-full bg-black/5 backdrop-blur-md border border-black/10 px-4 py-1.5 mb-8">
             <Terminal size={14} className="text-neutral-700" />
@@ -40,7 +39,6 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
-            {/* Primary CTA */}
             <a
               href="#"
               className="group bg-neutral-900 text-white px-8 py-4 rounded-xl text-sm font-semibold hover:bg-neutral-800 hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center gap-2 shadow-xl shadow-neutral-900/20 h-[72px]"
@@ -49,7 +47,6 @@ export default function Hero() {
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
 
-            {/* Modern Unified Multi-line Command Box */}
             <div className="relative flex flex-col justify-center border border-neutral-200 bg-white/80 backdrop-blur-xl px-5 py-3.5 rounded-xl shadow-sm hover:shadow-md transition-shadow h-[72px] w-full sm:w-auto overflow-hidden group">
               <div className="flex items-start justify-between gap-6">
                 <div className="flex flex-col gap-1.5 font-mono text-sm text-neutral-800">
@@ -63,7 +60,6 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Copy Button */}
                 <button
                   onClick={handleCopy}
                   className="p-1.5 text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors"
@@ -76,7 +72,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Content - Isolated Terminal Component */}
         <TerminalViewer />
 
       </div>
