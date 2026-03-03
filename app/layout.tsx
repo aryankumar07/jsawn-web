@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <OrbitalBackground
           centerX={1}
-          centerY={0.55}
+          centerY={1}
           seed={42}
           sizeRatio={1.5}
         />

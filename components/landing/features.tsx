@@ -1,26 +1,29 @@
 'use client'
 import React, { useRef } from "react";
-import { Zap, Shield, GitBranch, ArrowRight } from "lucide-react";
+import { FileCode, Globe, List, ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const topFeatures = [
   {
-    icon: Zap,
-    title: "Lightning Parser",
-    description: "Parse JSON 10x faster with our WebAssembly engine. Handle gigabyte-scale files without breaking a sweat.",
+    icon: FileCode,
+    title: "In-Terminal Schema Generation",
+    description: "Infer Go, TypeScript, or Zod schemas from any JSON in one command. Copy to clipboard instantly.",
     bgGradient: "from-[#eef2ff] via-[#f4f1fe] to-[#fcfaff]",
+    image: "/assets/schema.png",
   },
   {
-    icon: Shield,
-    title: "Schema Validation",
-    description: "Auto-generate and validate JSON schemas with zero config. Catch malformed data before it hits production.",
+    icon: Globe,
+    title: "Multi-Source Tabs & HTTP Client",
+    description: "Open local files and API endpoints as switchable tabs. POST, inspect, and compare — all in one session.",
     bgGradient: "from-[#fff1f2] via-[#fff0f5] to-[#fcfaff]",
+    image: "/assets/tabs.png",
   },
   {
-    icon: GitBranch,
-    title: "Transform Pipelines",
-    description: "Chain transforms like flatten, dedupe, rename, and filter. Build reusable pipelines for complex data flows.",
+    icon: List,
+    title: "Flat View with jq Paths",
+    description: "Press f to flatten the tree into .path = value pairs. Find any leaf without caring about nesting.",
     bgGradient: "from-[#f0fdf4] via-[#f0fdfa] to-[#fcfaff]",
+    image: "/assets/flatten.png",
   },
 ];
 
@@ -29,6 +32,7 @@ type Feature = {
   title: string;
   description: string;
   bgGradient: string;
+  image: string;
 };
 
 const FeatureCard = ({ feature, index, totalCards }: { feature: Feature; index: number; totalCards: number }) => {
@@ -69,11 +73,13 @@ const FeatureCard = ({ feature, index, totalCards }: { feature: Feature; index: 
                 <span>jsawn Core • Step 0{index + 1}</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight mb-6">
-                {feature.title}
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 leading-[1.1]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-700 via-neutral-900 to-neutral-600">
+                  {feature.title}
+                </span>
               </h2>
 
-              <p className="text-lg text-neutral-600 leading-relaxed mb-8 max-w-md">
+              <p className="text-lg text-neutral-500 leading-relaxed mb-8 max-w-md">
                 {feature.description}
               </p>
 
@@ -91,13 +97,11 @@ const FeatureCard = ({ feature, index, totalCards }: { feature: Feature; index: 
                   <div className="ml-4 text-xs text-neutral-400 font-medium">jsawn-workspace</div>
                 </div>
 
-                <div className="flex-1 bg-[#f8fafc] flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:24px_24px] z-0"></div>
-
+                <div className="flex-1 bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
                   <img
-                    src={`https://placehold.co/800x500/e2e8f0/475569?text=${feature.title.replace(/ /g, '+')}`}
+                    src={feature.image}
                     alt={feature.title}
-                    className="absolute inset-0 m-auto z-10 w-[90%] h-[85%] object-cover rounded shadow-sm border border-neutral-200/60"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>

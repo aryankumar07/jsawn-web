@@ -1,30 +1,30 @@
 "use client"
 import { motion, type Variants } from 'framer-motion';
-import { Zap, Shield, Smartphone, Sparkles, ArrowRight } from 'lucide-react';
+import { Search, FoldVertical, Route, Palette, Sparkles, ArrowRight } from 'lucide-react';
 
 const features = [
   {
-    title: "Lightning Fast",
-    description: "Optimized for speed with zero-delay interactions and instantaneous load times.",
-    icon: Zap,
+    title: "Search with Auto-expand",
+    description: "Hit / to search — matching nodes expand automatically so nothing stays hidden. Cycle results with n/N and see highlights inline.",
+    icon: Search,
     className: "md:col-span-2 md:row-span-2 bg-gradient-to-br from-zinc-100 via-white to-zinc-50",
   },
   {
-    title: "Bank-Grade Security",
-    description: "Your data is encrypted at rest and in transit.",
-    icon: Shield,
+    title: "Depth-based Folding",
+    description: "Press a number key to collapse the entire tree to that depth. Instantly tame unfamiliar JSON.",
+    icon: FoldVertical,
     className: "bg-gradient-to-b from-white to-zinc-50",
   },
   {
-    title: "Responsive Design",
-    description: "Flawless execution across all form factors.",
-    icon: Smartphone,
+    title: "Live jq Breadcrumb",
+    description: "The footer shows the full jq path of your selection. Always know exactly where you are.",
+    icon: Route,
     className: "bg-gradient-to-tr from-zinc-50 to-white",
   },
   {
-    title: "AI Powered",
-    description: "Smart algorithms that adapt to your workflow.",
-    icon: Sparkles,
+    title: "Syntax Highlighting",
+    description: "Color-coded types at a glance. Collapsed nodes show summaries like {… 12 keys} so you never expand blind.",
+    icon: Palette,
     className: "md:col-span-2 bg-gradient-to-r from-white via-zinc-50 to-zinc-100",
   },
 ];
@@ -91,27 +91,30 @@ export default function ToolSection() {
             className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-zinc-50 border border-zinc-200 text-sm font-medium shadow-sm"
           >
             <Sparkles className="w-4 h-4 text-zinc-500" />
-            <span className="text-zinc-700">Next-gen infrastructure</span>
+            <span className="text-zinc-700">Core tools</span>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, filter: "blur(12px)", y: 10 }}
+            initial={{ opacity: 0, filter: "blur(16px)", y: 20 }}
             whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-medium tracking-tight mb-6 leading-tight"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.1]"
           >
-            Refined for the <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 to-zinc-800">modern web.</span>
+            Built for the{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 via-zinc-600 to-zinc-900">
+              terminal-native.
+            </span>
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl text-zinc-500 leading-relaxed"
           >
-            Everything you need to build faster, scale further, and deliver exceptional experiences, stripped of all the unnecessary clutter.
+            Keyboard-first navigation, instant search, and smart folding — no fluff, just the tools you actually use.
           </motion.p>
         </div>
 
@@ -120,7 +123,7 @@ export default function ToolSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[220px]"
+          className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(220px,auto)]"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;

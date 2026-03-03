@@ -1,5 +1,3 @@
-import { title } from "process";
-
 const footerSections = [
   {
     title: "Github",
@@ -30,35 +28,33 @@ export default function Footer() {
     <footer className="relative pt-24 pb-12 px-6 overflow-hidden font-sans">
       <div className="mx-auto max-w-7xl relative z-10">
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-32">
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-12 mb-32">
 
           <div className="shrink-0">
             <img src="/assets/jsawn-logo.png" alt="Jsawn logo" className="w-8 h-8 object-contain" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 w-full">
-            {footerSections.map((section) => (
-              <div key={section.title} className="flex flex-col gap-4">
-                <h3 className="text-sm font-semibold text-neutral-900">
-                  {section.title}
-                </h3>
-                {section.links.length > 0 && (
-                  <ul className="flex flex-col gap-3">
-                    {section.links.map((data) => (
-                      <li key={data.title}>
-                        <a
-                          href={data.link}
-                          className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
-                        >
-                          {data.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
+          {footerSections.map((section) => (
+            <div key={section.title} className="flex flex-col gap-4">
+              <h3 className="text-sm font-semibold text-neutral-900">
+                {section.title}
+              </h3>
+              {section.links.length > 0 && (
+                <ul className="flex flex-col gap-3">
+                  {section.links.map((data) => (
+                    <li key={data.title}>
+                      <a
+                        href={data.link}
+                        className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+                      >
+                        {data.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
