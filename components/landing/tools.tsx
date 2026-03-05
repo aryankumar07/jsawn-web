@@ -1,6 +1,6 @@
 "use client"
 import { motion, type Variants } from 'framer-motion';
-import { Search, FoldVertical, Route, Palette, Sparkles, ArrowRight } from 'lucide-react';
+import { Search, FoldVertical, Route, Palette, Sparkles } from 'lucide-react';
 
 const features = [
   {
@@ -71,12 +71,6 @@ const shimmerVariants: Variants = {
   }
 };
 
-const arrowVariants: Variants = {
-  hidden: { x: -5, opacity: 0 },
-  visible: { x: -5, opacity: 0 },
-  hover: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 300 } }
-};
-
 export default function ToolSection() {
   return (
     <section className="py-24 px-6 md:px-12 text-zinc-900 font-sans overflow-hidden">
@@ -139,16 +133,12 @@ export default function ToolSection() {
                   className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white to-transparent skew-x-12"
                 />
 
-                <div className="relative z-10 flex items-start justify-between">
+                <div className="relative z-10">
                   <motion.div
                     variants={iconWrapperVariants}
                     className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-zinc-100 flex items-center justify-center mb-6"
                   >
                     <Icon className="w-5 h-5 text-zinc-700" />
-                  </motion.div>
-
-                  <motion.div variants={arrowVariants}>
-                    <ArrowRight className="w-5 h-5 text-zinc-400" />
                   </motion.div>
                 </div>
 

@@ -83,9 +83,14 @@ const FeatureCard = ({ feature, index, totalCards }: { feature: Feature; index: 
                 {feature.description}
               </p>
 
-              <button className="flex items-center gap-2 bg-white/80 hover:bg-white backdrop-blur-sm border border-neutral-200/60 shadow-sm text-neutral-900 px-7 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-md w-max">
+              <a
+                href="https://github.com/aryankumar07/jsawn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-white/80 hover:bg-white backdrop-blur-sm border border-neutral-200/60 shadow-sm text-neutral-900 px-7 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-md w-max"
+              >
                 Get Started <ArrowRight size={18} className="text-neutral-500" />
-              </button>
+              </a>
             </div>
 
             <div className="flex-[1.2] w-full relative min-h-[400px]">

@@ -28,7 +28,9 @@ export default function Navbar() {
           </a>
 
           <a
-            href="#your-target-section"
+            href="https://github.com/aryankumar07/jsawn"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#111] text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-black transition-all shadow-sm"
           >
             Get started

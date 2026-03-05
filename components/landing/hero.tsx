@@ -40,7 +40,9 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
             <a
-              href="#"
+              href="https://github.com/aryankumar07/jsawn"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group bg-neutral-900 text-white px-8 py-4 rounded-xl text-sm font-semibold hover:bg-neutral-800 hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center gap-2 shadow-xl shadow-neutral-900/20 h-[72px]"
             >
               Get Started
