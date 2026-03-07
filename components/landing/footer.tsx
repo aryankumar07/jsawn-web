@@ -4,7 +4,7 @@ const footerSections = [
     links: [
       {
         title: "Jsawn",
-        link: "#"
+        link: "https://github.com/aryankumar07/jsawn"
       },
       {
         title: "Jsawn-web",
@@ -17,7 +17,7 @@ const footerSections = [
     links: [
       {
         title: "Aryan",
-        link: "#"
+        link: "https://tarnished.lol"
       }
     ],
   },
@@ -28,7 +28,7 @@ export default function Footer() {
     <footer className="relative pt-24 pb-12 px-6 overflow-hidden font-sans">
       <div className="mx-auto max-w-7xl relative z-10">
 
-        <div className="flex flex-col sm:flex-row items-start justify-between gap-12 mb-32">
+        <div className="flex flex-row flex-wrap items-start justify-between gap-12 mb-32">
 
           <div className="shrink-0">
             <img src="/assets/jsawn-logo.png" alt="Jsawn logo" className="w-8 h-8 object-contain" />
@@ -36,7 +36,7 @@ export default function Footer() {
 
           {footerSections.map((section) => (
             <div key={section.title} className="flex flex-col gap-4">
-              <h3 className="text-sm font-semibold text-neutral-900">
+              <h3 className="text-sm font-semibold text-neutral-950">
                 {section.title}
               </h3>
               {section.links.length > 0 && (
@@ -45,7 +45,7 @@ export default function Footer() {
                     <li key={data.title}>
                       <a
                         href={data.link}
-                        className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+                        className="text-sm text-neutral-700 hover:text-neutral-950 transition-colors"
                       >
                         {data.title}
                       </a>
@@ -57,7 +57,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+        <div className="flex flex-row flex-wrap items-center justify-between gap-4 text-xs text-neutral-700">
           <p>&copy; 2026 jsawn Inc. All rights reserved.</p>
 
           <div className="flex items-center gap-2">
