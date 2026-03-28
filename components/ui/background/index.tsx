@@ -451,6 +451,16 @@ const OrbitalBackground = ({
       targetAngleRef.current += e.deltaY * SENSITIVITY;
     };
 
+    let lastTouchY = 0;
+    const onTouchStart = (e: TouchEvent) => {
+      lastTouchY = e.touches[0].clientY;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      const deltaY = lastTouchY - e.touches[0].clientY;
+      lastTouchY = e.touches[0].clientY;
+      targetAngleRef.current += deltaY * SENSITIVITY;
+    };
+
     const animate = () => {
       const diff = targetAngleRef.current - scrollAngleRef.current;
       if (Math.abs(diff) > 0.00001) {
@@ -461,10 +471,14 @@ const OrbitalBackground = ({
     };
 
     window.addEventListener("wheel", onWheel, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
     rafRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
       cancelAnimationFrame(rafRef.current);
     };
   }, []);
