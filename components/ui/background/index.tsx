@@ -485,8 +485,8 @@ const OrbitalBackground = ({
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100dvw',
-        height: '100dvh',
+        width: '100lvw',
+        height: '100lvh',
         zIndex: -10,
       }}
     />
